@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """This is the application entry point."""
 from flask.cli import FlaskGroup
-
 from api import create_app, db
 from api.extensions.extensions import celery, init_celery
+
+
 
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
