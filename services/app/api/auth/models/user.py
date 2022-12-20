@@ -1,6 +1,7 @@
 from ...extensions.extensions import db, ma
 from datetime import datetime
 from flask_login import UserMixin
+from flask_dance.consumer.storage.sqla import OAuthConsumerMixin
 
 
 class User(db.Model, UserMixin):
@@ -13,3 +14,19 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User(id={self.id}, username='{self.username}', email='{self.email}', image_file='{self.image_file}')"
+
+
+class OAuth(OAuthConsumerMixin, db.Model):
+    """This class stores the user authentication information.
+
+    Attributes
+    ----------
+    user_id: str
+        The unique user identifier, same as the User.id
+    user: User
+        The user found in the users table
+
+    """
+
+    user_id: int = db.Column(db.Integer, db.ForeignKey(User.id))
+    user: User = db.relationship(User)

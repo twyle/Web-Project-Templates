@@ -17,3 +17,5 @@ boto3==1.26.33
 gunicorn==20.1.0
 python-json-logger==2.0.4
 python-logstash==0.4.8
+blinker==1.5
+flask-dance==6.2.0

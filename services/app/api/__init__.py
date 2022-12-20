@@ -17,6 +17,7 @@ from .helpers.hooks import (
     log_post_request
 ) 
 from .auth.models.user import User
+from flask_dance.contrib.github import github
 
 
 def create_app():
@@ -42,6 +43,7 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
 
     # @app.before_first_request
     # def application_startup():
