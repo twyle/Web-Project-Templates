@@ -5,6 +5,7 @@ from .helpers.helpers import (
     register_blueprints
 )
 from .helpers.http_status_codes import HTTP_200_OK
+from .extensions.extensions import db
 
 
 def create_app():
@@ -21,6 +22,6 @@ def create_app():
         """Check if the application is running."""
         return jsonify({"success": "hello from flask"}), HTTP_200_OK
 
-    app.shell_context_processor({"app": app})
+    app.shell_context_processor({"app": app, "db": db})
 
     return app
