@@ -85,7 +85,7 @@ jobs:
 
     - name: Create the test tables
       run: |
-        python manage.py create_db
+        python ./services/app/manage.py create_db
 
     - name: Test with pytest
       run: |
