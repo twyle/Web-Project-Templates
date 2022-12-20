@@ -1,6 +1,7 @@
 from flask import Flask
 from .helpers.error_handlers import register_error_handlers
 from .helpers.helpers import (
+    set_configuration,
     register_blueprints
 )
 from .helpers.http_status_codes import HTTP_200_OK
@@ -11,6 +12,7 @@ def create_app():
 
     app = Flask(__name__)
 
+    set_configuration(app)
     register_error_handlers(app)
     register_blueprints(app)
 
