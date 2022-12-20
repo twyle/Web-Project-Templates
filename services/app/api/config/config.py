@@ -21,9 +21,6 @@ class BaseConfig:
     SQLALCHEMY_DATABASE_URI = db_conn_string
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    CLIENT_ID = os.environ['CLIENT_ID']
-    CLIENT_SECRET = os.environ['CLIENT_SECRET']
-
 
 class DevelopmentConfig(BaseConfig):
     """Development confuguration."""
