@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="{{ url_for('home.home_page') }}">Home</a>
+        <a class="nav-item nav-link" href="{{ url_for('home.about_page') }}">About</a>
+        <a class="nav-item nav-link" href="{{ url_for('home.contact_page') }}">Contact</a>
+        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
+    </div>    
     {% block content %}
         
     {% endblock %}
