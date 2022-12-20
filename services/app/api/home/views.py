@@ -4,6 +4,7 @@ from flask import (
     render_template
 )
 from ..helpers.http_status_codes import HTTP_200_OK
+from flask_login import current_user, login_required
 
 home = Blueprint('home', __name__)
 
@@ -21,3 +22,9 @@ def about_page():
 @home.route('/contact')
 def contact_page():
     return render_template('home/contact.html', title='contact'), HTTP_200_OK
+
+
+@home.route('/account')
+@login_required
+def account_page():
+    return render_template('home/account.html', title='account'), HTTP_200_OK

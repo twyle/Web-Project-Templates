@@ -7,7 +7,7 @@ from .helpers.helpers import (
     register_extensions
 )
 from .helpers.http_status_codes import HTTP_200_OK
-from .extensions.extensions import db
+from .extensions.extensions import db, login_manager
 import sys
 from .logging.logger import app_logger
 from .helpers.hooks import (
@@ -16,6 +16,7 @@ from .helpers.hooks import (
     log_get_request, 
     log_post_request
 ) 
+from .auth.models.user import User
 
 
 def create_app():
@@ -37,6 +38,10 @@ def create_app():
     app_logger.info("Registered the error handlers!")
     register_blueprints(app)
     app_logger.info("Registered the blueprints!")
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
     # @app.before_first_request
     # def application_startup():
