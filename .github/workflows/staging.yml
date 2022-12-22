@@ -1,10 +1,10 @@
-name: "Production Build"
+name: "Staging Build"
 
 on:
   push:
-    branches: [ production ]
+    branches: [ staging ]
   pull_request:
-    branches: [ production ]
+    branches: [ staging ]
   workflow_dispatch:
 
 jobs:
@@ -105,7 +105,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: Production
+      name: Staging
 
     services:
       postgres:
