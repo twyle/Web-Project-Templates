@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h2>Account</h2>
-    <h1>{{ current_user.username }}</h1>
+    <div class="content-section">
+        <div class="media">
+          <img class="account-img" src="{{ image_file }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{current_user.username}}</h2>
+            <p class="text-secondary">{{current_user.email}}</p>
+          </div>
+        </div>
+    
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.username.label() }}
+            {{ form.username(placeholder='Enter Username') }}
+            {{ form.email.label() }}
+            {{ form.email(placeholder='Enter Email') }}
+            {{ form.picture.label() }}
+            {{ form.picture() }}
+            {{ form.submit() }}
+        </form>
+
+    </div>
 {% endblock content %}

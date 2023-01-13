@@ -19,3 +19,4 @@ python-json-logger==2.0.4
 python-logstash==0.4.8
 blinker==1.5
 flask-dance==6.2.0
+pillow==9.4.0
