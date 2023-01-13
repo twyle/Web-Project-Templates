@@ -8,7 +8,8 @@ from ..extensions.extensions import (
     bcrypt,
     login_manager,
     cors,
-    migrate
+    migrate,
+    mail
 )
 from sqlalchemy_utils import database_exists
 
@@ -33,6 +34,7 @@ def register_extensions(app):
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
     # login_manager.login_message_category = 'info'
+    mail.init_app(app)
 
 
 def create_db_conn_string() -> str:

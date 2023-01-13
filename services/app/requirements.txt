@@ -20,3 +20,4 @@ python-logstash==0.4.8
 blinker==1.5
 flask-dance==6.2.0
 pillow==9.4.0
+flask-mail==0.9.1

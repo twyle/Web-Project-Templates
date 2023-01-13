@@ -8,6 +8,7 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from celery import Celery
 import boto3
+from flask_mail import Mail
 
 load_dotenv()
 
@@ -18,6 +19,7 @@ ma = Marshmallow()
 bcrypt = Bcrypt()
 cors = CORS()
 login_manager = LoginManager()
+mail = Mail()
 
 s3 = boto3.client(
     "s3",
