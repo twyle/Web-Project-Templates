@@ -1,5 +1,6 @@
 from ..home.views import home
 from ..auth.views import auth
+from ..errors.error_handlers import errors
 import os
 from ..config.config import Config
 from ..extensions.extensions import (
@@ -22,6 +23,7 @@ def set_configuration(app):
 def register_blueprints(app):
     app.register_blueprint(home)
     app.register_blueprint(auth, url_prefix='/auth')
+    app.register_blueprint(errors)
 
 
 def register_extensions(app):
